@@ -14,7 +14,7 @@ type ButtonProps = {
   buttonAction: (todoId: string) => Promise<void>;
 };
 
-const Button = async ({
+const Button = ({
   className,
   buttonType,
   buttonAction,

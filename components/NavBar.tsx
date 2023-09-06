@@ -28,6 +28,8 @@ const NavBar = async () => {
             : `Welcome to Planner by Goldie Tiara`}
         </p>
         <div className="  w-full h-full flex justify-center items-center gap-10 border-l-1 border-black">
+          {/* <UserMenuButton session={session} /> */}
+
           {session?.user ? (
             <UserMenuButton session={session} />
           ) : (
