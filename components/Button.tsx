@@ -4,6 +4,8 @@ import React, { useTransition } from "react";
 import {
   PiCheckLight,
   PiHourglassLowLight,
+  PiSmileyLight,
+  PiSmileySadLight,
   PiTrashLight,
 } from "react-icons/pi";
 
@@ -11,6 +13,7 @@ type ButtonProps = {
   className: string;
   buttonType: string;
   todoId: string;
+  status?: boolean;
   buttonAction: (todoId: string) => Promise<void>;
 };
 
@@ -19,6 +22,7 @@ export default function Button({
   buttonType,
   buttonAction,
   todoId,
+  status,
 }: ButtonProps) {
   const [isPending, startTransition] = useTransition();
 
@@ -26,7 +30,7 @@ export default function Button({
     <>
       <button
         className={`px-5 hover:text-Ivory transition-all ease-in-out duration-300
-    ${className}`}
+    ${className} relative group`}
         disabled={isPending}
         onClick={() => {
           startTransition(async () => await buttonAction(todoId));
@@ -35,6 +39,11 @@ export default function Button({
       >
         {isPending ? (
           <PiHourglassLowLight className=" animate-spin" />
+        ) : status ? (
+          <>
+            <PiSmileySadLight className=" absolute opacity-0 group-hover:opacity-100" />
+            <PiSmileyLight className="opacity-100 group-hover:opacity-0" />
+          </>
         ) : buttonType === "update" ? (
           <PiCheckLight />
         ) : (

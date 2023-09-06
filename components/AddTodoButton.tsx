@@ -20,7 +20,7 @@ export default function AddTodoButton({ className }: AddTodoButtonProps) {
         type="submit"
       >
         {pending ? (
-          <PiHourglassLowLight className=" animate-spin m-auto" />
+          <PiHourglassLowLight className=" animate-spin m-auto shrink-0 text-2xl" />
         ) : (
           <p>SUBMIT</p>
         )}

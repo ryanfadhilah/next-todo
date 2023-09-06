@@ -72,12 +72,6 @@ export default async function Home() {
             <option value={""}>Others</option>
           </select> */}
           <AddTodoButton />
-          {/* <button
-            type="submit"
-            className="mt-10 bg-transparent text-black border-1 border-black hover:bg-black hover:text-Ivory transition-all ease-in-out duration-300 py-5 px-4 text-center"
-          >
-            SUBMIT
-          </button> */}
         </form>
       </section>
     </main>
