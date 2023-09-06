@@ -3,6 +3,7 @@ import { getCurrentUser } from "./api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/db/prisma";
 import Button from "@/components/Button";
 import { revalidatePath } from "next/cache";
+import { PiSmileyLight } from "react-icons/pi";
 
 export default async function Home() {
   const session = await getCurrentUser();
@@ -52,7 +53,11 @@ export default async function Home() {
           <div className=" border-t-1 border-black">
             {result.map((v: any, i: number) => {
               return (
-                <div className=" flex border-x-1 border-b-1 border-black">
+                <div
+                  className={` flex border-x-1 border-b-1 border-black ${
+                    v.status ? ` bg-green-200/50` : ``
+                  }`}
+                >
                   <p className=" self-center px-3 w-32">{v.category}</p>
                   <p
                     key={i}
@@ -60,12 +65,18 @@ export default async function Home() {
                   >
                     {v.title}
                   </p>
-                  <Button
-                    className="border-x-1 border-black hover:bg-black hover:text-Ivory"
-                    buttonType="update"
-                    buttonAction={updateTodo}
-                    todoId={v.id}
-                  />
+                  {v.status ? (
+                    <button className="border-x-1 border-black px-5 text-center cursor-default">
+                      <PiSmileyLight className="" />
+                    </button>
+                  ) : (
+                    <Button
+                      className="border-x-1 border-black hover:bg-black hover:text-Ivory"
+                      buttonType="update"
+                      buttonAction={updateTodo}
+                      todoId={v.id}
+                    />
+                  )}
                   <Button
                     className="hover:bg-rose-800 hover:text-Ivory"
                     buttonType="delete"

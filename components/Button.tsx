@@ -1,7 +1,11 @@
 "use client";
-import { TypeTodo } from "@/types";
-import React, { MouseEvent } from "react";
-import { PiCheckLight, PiTrashLight } from "react-icons/pi";
+import React, { useTransition } from "react";
+
+import {
+  PiCheckLight,
+  PiHourglassLowLight,
+  PiTrashLight,
+} from "react-icons/pi";
 
 type ButtonProps = {
   className: string;
@@ -16,14 +20,28 @@ const Button = async ({
   buttonAction,
   todoId,
 }: ButtonProps) => {
+  const [isPending, startTransition] = useTransition();
+
   return (
-    <button
-      className={`px-5 hover:text-Ivory transition-all ease-in-out duration-300
+    <>
+      <button
+        className={`px-5 hover:text-Ivory transition-all ease-in-out duration-300
     ${className}`}
-      onClick={() => buttonAction(todoId)}
-    >
-      {buttonType === "update" ? <PiCheckLight /> : <PiTrashLight />}
-    </button>
+        disabled={isPending}
+        onClick={() => {
+          startTransition(async () => await buttonAction(todoId));
+          // buttonAction(todoId);
+        }}
+      >
+        {isPending ? (
+          <PiHourglassLowLight className=" animate-spin" />
+        ) : buttonType === "update" ? (
+          <PiCheckLight />
+        ) : (
+          <PiTrashLight />
+        )}
+      </button>
+    </>
   );
 };
 
