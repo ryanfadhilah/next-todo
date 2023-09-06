@@ -2,7 +2,6 @@
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { VscMenu } from "react-icons/vsc";
 
@@ -39,7 +38,9 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
               </li>
               {/* <Link href={"/add-todo"}> */}
               <li className=" cursor-pointer hover:bg-black hover:text-Ivory transition-all ease-in-out duration-300 py-3 px-2 border-b-1 border-black">
-                <a href="/add-todo">Add Todo</a>
+                <a href="/add-todo" className="py-3 px-[85px] text-center">
+                  Add Todo
+                </a>
               </li>
               {/* </Link> */}
               <li

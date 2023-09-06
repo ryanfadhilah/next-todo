@@ -68,7 +68,7 @@ export default async function Home() {
         <div className="fixed bottom-0 right-7 h-[80.5%] border-r-1 border-black"></div>
       </div>
 
-      <section className="w-full h-[525px] uppercase grid grid-cols-2 overflow-auto">
+      <section className="w-full h-[525px] uppercase grid md:grid-cols-2 md:gap-0 gap-10 overflow-auto">
         <div className="px-10">
           <h1 className=" mb-8 text-3xl text-center">dashboard</h1>
           <div className=" border border-black w-full h-[450px]">
@@ -80,11 +80,11 @@ export default async function Home() {
             />
           </div>
         </div>
-        <div className="px-10 border-l-1 border-black">
+        <div className="px-10 md:border-l-1 md:border-black">
           <h1 className=" mb-8 text-3xl text-center">
             Remaining Todos: {result.length - todoComplete.length}
           </h1>
-          <div className=" border-t-1 border-black">
+          <div className=" border-t-1 border-black h-[456px] overflow-auto">
             {result.map((v, i: number) => {
               return (
                 <div

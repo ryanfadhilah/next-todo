@@ -24,9 +24,10 @@ export default function TodoCategory({ className }: AddTodoButtonProps) {
           <label
             htmlFor="Urgent"
             className="inline-flex items-center justify-between w-full md:px-5 py-5 cursor-pointer
-            text-gray-500 border border-black
+             border border-black
             peer-checked:text-Ivory peer-checked:bg-red-500
-            hover:text-gray-600 hover:bg-gray-100"
+            hover:text-gray-600 hover:bg-red-200/20
+            transition-all ease-in-out duration-300"
           >
             <div className="block">
               <div className="w-full ">Urgent</div>
@@ -44,9 +45,10 @@ export default function TodoCategory({ className }: AddTodoButtonProps) {
           <label
             htmlFor="Important"
             className="inline-flex items-center justify-between w-full md:px-5 py-5 cursor-pointer
-            text-gray-500 border-black border-y-1
+             border-black border-y-1
             peer-checked:text-Ivory peer-checked:bg-amber-500
-            hover:text-gray-600 hover:bg-gray-100"
+            hover:text-gray-600 hover:bg-amber-200/20
+            transition-all ease-in-out duration-300"
           >
             <div className="block">
               <div className="w-full">Important</div>
@@ -64,9 +66,10 @@ export default function TodoCategory({ className }: AddTodoButtonProps) {
           <label
             htmlFor="Others"
             className="inline-flex items-center justify-between w-full md:px-5 py-5 cursor-pointer
-            text-gray-500 border border-black
+             border border-black
             peer-checked:text-Ivory peer-checked:bg-teal-500
-            hover:text-gray-600 hover:bg-gray-100"
+            hover:text-gray-600 hover:bg-teal-200/20
+            transition-all ease-in-out duration-300"
           >
             <div className="block">
               <div className="w-full">Others</div>
