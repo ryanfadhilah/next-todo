@@ -15,7 +15,7 @@ export default function AddTodoButton({ className }: AddTodoButtonProps) {
   return (
     <>
       <button
-        className={`mt-10 bg-transparent text-black border-1 border-black hover:bg-black hover:text-Ivory transition-all ease-in-out duration-300 py-5 px-4 text-center ${className}`}
+        className={`mt-10 bg-transparent text-black border-1 border-black hover:bg-black hover:text-Ivory focus:bg-black focus:text-Ivory transition-all ease-in-out duration-300 py-5 px-4 text-center ${className}`}
         disabled={pending}
         type="submit"
       >

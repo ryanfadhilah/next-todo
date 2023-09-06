@@ -41,8 +41,8 @@ export default function Button({
           <PiHourglassLowLight className=" animate-spin" />
         ) : status ? (
           <>
-            <PiSmileySadLight className=" absolute opacity-0 group-hover:opacity-100" />
-            <PiSmileyLight className="opacity-100 group-hover:opacity-0" />
+            <PiSmileySadLight className=" absolute opacity-0 group-hover:opacity-100 group-focus:opacity-100" />
+            <PiSmileyLight className="opacity-100 group-hover:opacity-0 group-focus:opacity-0" />
           </>
         ) : buttonType === "update" ? (
           <PiCheckLight />

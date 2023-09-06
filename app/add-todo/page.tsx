@@ -5,6 +5,7 @@ import { PiArrowLeftLight } from "react-icons/pi";
 import { authOptions, getCurrentUser } from "../api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/db/prisma";
 import AddTodoButton from "@/components/AddTodoButton";
+import TodoCategory from "@/components/TodoCategory";
 
 export default async function Home() {
   const session = await getCurrentUser();
@@ -51,26 +52,8 @@ export default async function Home() {
             placeholder="Title"
             className=" bg-transparent border-b-1 border-black focus:outline-none py-3 px-4 h-full"
           />
-          {/* TODO LATER */}
-          <input
-            required
-            type="text"
-            name="category"
-            placeholder="Category"
-            className=" bg-transparent border-b-1 border-black focus:outline-none py-3 px-4 h-full"
-          />
-          {/* <select
-            defaultValue="Category"
-            name="category"
-            value={"Category"}
-            className=" bg-transparent border-b-1 border-black focus:outline-none py-3 px-4 h-full"
-          >
-            <option value={""}>Category</option>
-            <option value={""}>Important</option>
-            <option value={""}>Urgent, but not Important</option>
-            <option value={""}>Not urgent and not important</option>
-            <option value={""}>Others</option>
-          </select> */}
+
+          <TodoCategory name="category" />
           <AddTodoButton />
         </form>
       </section>
