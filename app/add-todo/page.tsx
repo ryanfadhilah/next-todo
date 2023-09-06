@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { PiArrowLeftLight } from "react-icons/pi";
 import { authOptions, getCurrentUser } from "../api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/db/prisma";
+import AddTodoButton from "@/components/AddTodoButton";
 
 export default async function Home() {
   const session = await getCurrentUser();
@@ -70,12 +71,13 @@ export default async function Home() {
             <option value={""}>Not urgent and not important</option>
             <option value={""}>Others</option>
           </select> */}
-          <button
+          <AddTodoButton />
+          {/* <button
             type="submit"
             className="mt-10 bg-transparent text-black border-1 border-black hover:bg-black hover:text-Ivory transition-all ease-in-out duration-300 py-5 px-4 text-center"
           >
             SUBMIT
-          </button>
+          </button> */}
         </form>
       </section>
     </main>

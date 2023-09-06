@@ -14,12 +14,12 @@ type ButtonProps = {
   buttonAction: (todoId: string) => Promise<void>;
 };
 
-const Button = ({
+export default function Button({
   className,
   buttonType,
   buttonAction,
   todoId,
-}: ButtonProps) => {
+}: ButtonProps) {
   const [isPending, startTransition] = useTransition();
 
   return (
@@ -43,6 +43,4 @@ const Button = ({
       </button>
     </>
   );
-};
-
-export default Button;
+}
