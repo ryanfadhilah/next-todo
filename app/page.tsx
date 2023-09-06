@@ -9,16 +9,13 @@ import Dashboard from "@/components/Dashboard";
 export default async function Home() {
   const session = await getCurrentUser();
   console.log(session);
-
   if (!session) return <p> please sign in first!</p>;
 
-  const result = await prisma.todo.findMany({
+  // get user todo
+  const result: Todo[] = await prisma.todo.findMany({
     where: { userId: session?.user?.id },
   });
-
   if (!result) return null;
-
-  console.log(result);
 
   const deleteTodo = async (todoId: string) => {
     "use server";
@@ -42,6 +39,28 @@ export default async function Home() {
     revalidatePath("/");
   };
 
+  //pie chart
+  const todoUrget = await prisma.todo.findMany({
+    where: {
+      AND: [{ userId: session?.user?.id }, { category: "Urgent" }],
+    },
+  });
+  const todoImportant = await prisma.todo.findMany({
+    where: {
+      AND: [{ userId: session?.user?.id }, { category: "Important" }],
+    },
+  });
+  const todoOthers = await prisma.todo.findMany({
+    where: {
+      AND: [{ userId: session?.user?.id }, { category: "Others" }],
+    },
+  });
+  const todoComplete = await prisma.todo.findMany({
+    where: {
+      AND: [{ userId: session?.user?.id }, { status: true }],
+    },
+  });
+
   return (
     <main>
       <div className="w-full h-full flex lg:px-7 px-5 relative">
@@ -53,15 +72,20 @@ export default async function Home() {
         <div className="px-10">
           <h1 className=" mb-8 text-3xl text-center">dashboard</h1>
           <div className=" border border-black w-full h-[450px]">
-            <Dashboard />
+            <Dashboard
+              todoUrgent={todoUrget.length}
+              todoImportant={todoImportant.length}
+              todoOthers={todoOthers.length}
+              todoComplete={todoComplete.length}
+            />
           </div>
         </div>
         <div className="px-10 border-l-1 border-black">
           <h1 className=" mb-8 text-3xl text-center">
-            Remaining Todos: {result.length}
+            Remaining Todos: {result.length - todoComplete.length}
           </h1>
           <div className=" border-t-1 border-black">
-            {result.map((v: Todo, i: number) => {
+            {result.map((v, i: number) => {
               return (
                 <div
                   className={` flex border-x-1 border-b-1 border-black ${
