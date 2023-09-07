@@ -6,10 +6,14 @@ import { authOptions, getCurrentUser } from "../api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/db/prisma";
 import AddTodoButton from "@/components/AddTodoButton";
 import TodoCategory from "@/components/TodoCategory";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Planner App by Goldie Tiara",
+};
 
 export default async function Home() {
   const session = await getCurrentUser();
-  console.log(session);
 
   const addNewTodo = async (formData: FormData) => {
     "use server";

@@ -107,7 +107,6 @@ export default function Dashboard({
               />
             ))}
           </Pie>
-          {/* <Legend></Legend> */}
         </PieChart>
         <div
           className=" grid 
