@@ -65,7 +65,78 @@ export default function Dashboard({
   };
 
   return (
-    <div className=" grid place-content-center place-items-center m-5">
+    <div>
+      <div className=" grid place-content-center place-items-center m-5">
+        <PieChart width={280} height={300}>
+          <Pie
+            data={PieData}
+            dataKey="value"
+            outerRadius={70}
+            label={PieLabel}
+            labelLine={false}
+            // cx={120}
+            // cy={100}
+            // fill="#8884d8"
+          >
+            {PieData.map((v, i) => (
+              <Cell
+                key={`cell-${i}`}
+                fill={PieDataTheme[i % PieDataTheme.length]}
+              />
+            ))}
+          </Pie>
+          <Pie
+            data={PieData2}
+            dataKey="value"
+            outerRadius={120}
+            innerRadius={70}
+            // label={PieLabel}
+            // labelLine={false}
+            // cx={120}
+            // cy={100}
+            // fill="#8884d8"
+          >
+            {PieData2.map((v, i) => (
+              <Cell
+                key={`cell-${i}`}
+                fill={PieDataTheme2[i % PieDataTheme2.length]}
+              />
+            ))}
+          </Pie>
+          {/* <Legend></Legend> */}
+        </PieChart>
+        <div
+          className=" grid 
+        md:grid-cols-2 md:mt-12 
+        mt-10 gap-5 place-items-center"
+        >
+          <div className=" flex gap-5">
+            <div className=" flex md:flex-col justify-center items-center gap-2">
+              <p className="bg-red-500 w-3 h-3 rounded-full"></p>
+              <span className=" text-xs">Remainings</span>
+            </div>
+            <div className=" flex md:flex-col justify-center items-center gap-2">
+              <p className="bg-teal-500 w-3 h-3 rounded-full"></p>
+              <span className=" text-xs">Completed</span>
+            </div>
+          </div>
+          <div className=" flex gap-5">
+            <div className=" flex md:flex-col justify-center items-center gap-2">
+              <p className="bg-rose-500 w-3 h-3 rounded-full"></p>
+              <span className=" text-xs">Urgent</span>
+            </div>
+            <div className=" flex md:flex-col justify-center items-center gap-2">
+              <p className="bg-amber-500 w-3 h-3 rounded-full"></p>
+              <span className=" text-xs">Important</span>
+            </div>
+            <div className=" flex md:flex-col justify-center items-center gap-2">
+              <p className="bg-sky-500 w-3 h-3 rounded-full"></p>
+              <span className=" text-xs">Others</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className=" grid place-content-center place-items-center m-5">
       <PieChart width={400} height={310}>
         <Pie
           data={PieData}
@@ -102,7 +173,6 @@ export default function Dashboard({
             />
           ))}
         </Pie>
-        {/* <Legend></Legend> */}
       </PieChart>
       <div className=" grid grid-cols-2 gap-5 mt-12">
         <div className=" flex gap-5">
@@ -130,6 +200,8 @@ export default function Dashboard({
           </div>
         </div>
       </div>
+    </div> 
+  */}
     </div>
   );
 }

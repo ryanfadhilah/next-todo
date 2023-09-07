@@ -31,15 +31,15 @@ export default async function Home() {
   };
   console.log(addNewTodo);
   return (
-    <main className="w-full h-full flex items-center justify-start flex-col lg:px-7 my-6 px-5 pb-16 relative">
-      <div className="fixed bottom-0 left-7 h-[74.4%] border-l-1 border-black"></div>
-      <div className="fixed bottom-0 right-7 h-[80.5%] border-r-1 border-black"></div>
-      <section className="w-full h-fit px-16 pb-20 uppercase grid grid-cols-1 gap-10">
+    <main className="w-full h-full flex items-center justify-start flex-col lg:px-7 my-6 relative">
+      <div className="fixed bottom-0 left-7 h-[74.4%] border-l-1 border-black hidden md:flex"></div>
+      <div className="fixed bottom-0 right-7 h-[80.5%] border-r-1 border-black hidden md:flex"></div>
+      <section className="w-full h-fit md:px-16 px-7 pb-20 uppercase grid grid-cols-1 gap-10">
         <div className=" flex items-center">
           <Link href={"/"}>
-            <PiArrowLeftLight className=" text-4xl hover:stroke-2" />
+            <PiArrowLeftLight className="hidden md:flex text-4xl hover:stroke-2" />
           </Link>
-          <h1 className=" text-3xl w-full text-center"> ADD NEW TODO </h1>
+          <h1 className=" md:text-3xl w-full text-center"> ADD NEW TODO </h1>
         </div>
         <form
           action={addNewTodo}

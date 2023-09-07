@@ -1,8 +1,5 @@
 "use client";
 import React from "react";
-import { experimental_useFormStatus as useFormStatus } from "react-dom";
-
-import { PiHourglassLowLight } from "react-icons/pi";
 
 type AddTodoButtonProps = {
   className?: string;
@@ -10,8 +7,8 @@ type AddTodoButtonProps = {
 
 export default function TodoCategory({ className }: AddTodoButtonProps) {
   return (
-    <>
-      <ul className="grid w-full grid-cols-3">
+    <div>
+      <ul className="grid w-full grid-cols-3 text-center text-sm md:text-base">
         <li>
           <input
             type="radio"
@@ -26,12 +23,10 @@ export default function TodoCategory({ className }: AddTodoButtonProps) {
             className="inline-flex items-center justify-between w-full md:px-5 py-5 cursor-pointer
              border border-black
             peer-checked:text-Ivory peer-checked:bg-red-500
-            hover:text-gray-600 hover:bg-red-200/20
+            hover:text-red-950 hover:bg-red-200/20
             transition-all ease-in-out duration-300"
           >
-            <div className="block">
-              <div className="w-full ">Urgent</div>
-            </div>
+            <div className="w-full ">Urgent</div>
           </label>
         </li>
         <li>
@@ -47,12 +42,10 @@ export default function TodoCategory({ className }: AddTodoButtonProps) {
             className="inline-flex items-center justify-between w-full md:px-5 py-5 cursor-pointer
              border-black border-y-1
             peer-checked:text-Ivory peer-checked:bg-amber-500
-            hover:text-gray-600 hover:bg-amber-200/20
+            hover:text-amber-950 hover:bg-amber-200/20
             transition-all ease-in-out duration-300"
           >
-            <div className="block">
-              <div className="w-full">Important</div>
-            </div>
+            <div className="w-full">Important</div>
           </label>
         </li>
         <li>
@@ -67,16 +60,14 @@ export default function TodoCategory({ className }: AddTodoButtonProps) {
             htmlFor="Others"
             className="inline-flex items-center justify-between w-full md:px-5 py-5 cursor-pointer
              border border-black
-            peer-checked:text-Ivory peer-checked:bg-teal-500
-            hover:text-gray-600 hover:bg-teal-200/20
+            peer-checked:text-Ivory peer-checked:bg-sky-500
+            hover:text-sky-950 hover:bg-sky-200/20
             transition-all ease-in-out duration-300"
           >
-            <div className="block">
-              <div className="w-full">Others</div>
-            </div>
+            <div className="w-full">Others</div>
           </label>
         </li>
       </ul>
-    </>
+    </div>
   );
 }

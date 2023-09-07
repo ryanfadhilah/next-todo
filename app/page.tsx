@@ -63,14 +63,14 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="w-full h-full flex lg:px-7 px-5 relative">
+      <div className="w-full h-full lg:px-7 px-5 relative hidden md:flex">
         <div className="fixed bottom-0 left-7 h-[74.4%] border-l-1 border-black"></div>
         <div className="fixed bottom-0 right-7 h-[80.5%] border-r-1 border-black"></div>
       </div>
 
-      <section className="w-full h-[525px] uppercase grid lg:grid-cols-2 lg:gap-0 gap-10 overflow-auto">
-        <div className="px-10">
-          <h1 className=" mb-8 text-3xl text-center">dashboard</h1>
+      <section className="w-full h-[525px] uppercase grid lg:grid-cols-2 lg:gap-0 gap-10 ">
+        <div className="md:px-10">
+          <h1 className=" mb-8 md:text-3xl text-xl text-center">dashboard</h1>
           <div className=" border border-black w-full h-[450px]">
             <Dashboard
               todoUrgent={todoUrget.length}
@@ -80,11 +80,11 @@ export default async function Home() {
             />
           </div>
         </div>
-        <div className="px-10 lg:border-l-1 lg:border-black">
-          <h1 className=" mb-8 text-3xl text-center">
+        <div className="md:px-10 lg:border-l-1 lg:border-black">
+          <h1 className=" mb-8 md:text-3xl text-center text-xl">
             Remaining Todos: {result.length - todoComplete.length}
           </h1>
-          <div className=" border-t-1 border-black h-[456px] overflow-auto">
+          <div className=" border-t-1 border-black h-[456px] overflow-y-auto">
             {result.map((v, i: number) => {
               return (
                 <div

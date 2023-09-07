@@ -21,10 +21,10 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
       ) : (
         <div className="w-full h-full grid place-items-center dropdown cursor-pointer">
           <div className="dropdown inline-block relative">
-            <button className="uppercase px-4 inline-flex items-center">
+            <button className="uppercase inline-flex items-center">
               <VscMenu className=" shrink-0 text-xl" />
             </button>
-            <ul className=" dropdown-menu absolute hidden text-gray-700 bg-Ivory min-w-fit w-64 -right-[200%] z-50 text-center border-x-1 border-t-1 border-black">
+            <ul className=" dropdown-menu absolute hidden text-gray-700 bg-Ivory min-w-fit w-64 overflow-auto md:-right-[200%] right-0 z-50 text-center border-x-1 border-t-1 border-black">
               <li className="py-3 px-5 pt-5 items-center w-full border-b-1 border-black flex-col flex">
                 <Image
                   src={`${user?.image}`}

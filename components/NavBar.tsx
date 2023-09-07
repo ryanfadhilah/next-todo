@@ -11,7 +11,7 @@ const NavBar = async () => {
 
   return (
     <nav className="flex m-7">
-      <div className=" w-fit pr-10">
+      <div className=" w-fit md:pr-10 pr-3">
         <Link href={"/"}>
           <Image
             src="/chiyo-chichi-fliped.PNG"
@@ -22,12 +22,12 @@ const NavBar = async () => {
         </Link>
       </div>
       <div className="grid grid-cols-5 items-center justify-start border-1 border-black w-full uppercase ">
-        <p className=" col-span-4 pl-10 ">
+        <p className=" col-span-4 md:pl-10 pl-3 ">
           {session?.user
             ? `Hi, ${session?.user?.name}!`
             : `Welcome to Planner by Goldie Tiara`}
         </p>
-        <div className="  w-full h-full flex justify-center items-center gap-10 border-l-1 border-black">
+        <div className=" w-full h-full flex justify-center items-center border-l-1 border-black">
           {/* <UserMenuButton session={session} /> */}
 
           {session?.user ? (
