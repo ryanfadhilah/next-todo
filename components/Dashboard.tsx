@@ -1,3 +1,7 @@
+"use client";
+import React from "react";
+import { PieChart, Pie, Cell, Legend } from "recharts";
+
 type DashboardProps = {
   todoUrgent: number;
   todoImportant: number;
@@ -12,32 +16,119 @@ export default function Dashboard({
   todoComplete,
 }: DashboardProps) {
   const total = todoUrgent + todoImportant + todoOthers;
+  const PieData = [
+    { name: "Important", value: todoComplete },
+    { name: "Others", value: total - todoComplete },
+  ];
+  const PieData2 = [
+    { name: "Urgent", value: todoUrgent },
+    { name: "Important", value: todoImportant },
+    { name: "Others", value: todoOthers },
+  ];
+
+  const PieDataTheme = [
+    "rgb(20 184 166 / var(--tw-bg-opacity))",
+    "rgb(239 68 68 / var(--tw-bg-opacity))",
+  ];
+  const PieDataTheme2 = [
+    "rgb(244 63 94 / var(--tw-bg-opacity))",
+    "rgb(245 158 11 / var(--tw-bg-opacity))",
+    "rgb(14 165 233 / var(--tw-bg-opacity))",
+  ];
+
+  const RADIAN = Math.PI / 180;
+
+  const PieLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    percent,
+  }: any) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="white"
+        textAnchor={x > cx ? "start" : "end"}
+        dominantBaseline="central"
+        className=" text-sm"
+      >
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
 
   return (
-    <div className=" grid grid-rows-2 w-full h-full">
-      <div className="grid grid-cols-2 border-b-1 border-black">
-        <p className="bg-green-200/50 text-green-500 border-r-1 border-black flex flex-col gap-3 justify-center items-center text-3xl">
-          {todoComplete}
-          <p className="text-sm">Complete</p>{" "}
-        </p>
-        <p className="bg-orange-200/50 text-orange-500 flex flex-col gap-3 justify-center items-center text-3xl">
-          {total - todoComplete}
-          <p className="text-sm">Remaining</p>
-        </p>
-      </div>
-      <div className=" grid grid-cols-3 ">
-        <p className="bg-rose-200/50 text-rose-500 flex flex-col gap-3 justify-center items-center text-3xl">
-          {todoUrgent}
-          <p className="text-sm">Urgent</p>
-        </p>
-        <p className="bg-amber-200/50 text-amber-500 flex flex-col gap-3 justify-center items-center border-black border-x-1 text-3xl">
-          {todoImportant}
-          <p className="text-sm">Important</p>
-        </p>
-        <p className="bg-teal-200/50 text-teal-500 flex flex-col gap-3 justify-center items-center text-3xl">
-          {todoOthers}
-          <p className="text-sm">Others</p>
-        </p>
+    <div className=" grid place-content-center place-items-center m-5">
+      <PieChart width={400} height={310}>
+        <Pie
+          data={PieData}
+          dataKey="value"
+          outerRadius={100}
+          label={PieLabel}
+          labelLine={false}
+          // cx={120}
+          // cy={100}
+          // fill="#8884d8"
+        >
+          {PieData.map((v, i) => (
+            <Cell
+              key={`cell-${i}`}
+              fill={PieDataTheme[i % PieDataTheme.length]}
+            />
+          ))}
+        </Pie>
+        <Pie
+          data={PieData2}
+          dataKey="value"
+          outerRadius={150}
+          innerRadius={100}
+          // label={PieLabel}
+          // labelLine={false}
+          // cx={120}
+          // cy={100}
+          // fill="#8884d8"
+        >
+          {PieData2.map((v, i) => (
+            <Cell
+              key={`cell-${i}`}
+              fill={PieDataTheme2[i % PieDataTheme2.length]}
+            />
+          ))}
+        </Pie>
+        {/* <Legend></Legend> */}
+      </PieChart>
+      <div className=" grid grid-cols-2 gap-5 mt-12">
+        <div className=" flex gap-5">
+          <div className=" flex flex-col justify-center items-center gap-2">
+            <p className="bg-red-500 w-3 h-3 rounded-full"></p>
+            <span className=" text-xs">Remainings</span>
+          </div>
+          <div className=" flex flex-col justify-center items-center gap-2">
+            <p className="bg-teal-500 w-3 h-3 rounded-full"></p>
+            <span className=" text-xs">Completed</span>
+          </div>
+        </div>
+        <div className=" flex gap-5">
+          <div className=" flex flex-col justify-center items-center gap-2">
+            <p className="bg-rose-500 w-3 h-3 rounded-full"></p>
+            <span className=" text-xs">Urgent</span>
+          </div>
+          <div className=" flex flex-col justify-center items-center gap-2">
+            <p className="bg-amber-500 w-3 h-3 rounded-full"></p>
+            <span className=" text-xs">Important</span>
+          </div>
+          <div className=" flex flex-col justify-center items-center gap-2">
+            <p className="bg-sky-500 w-3 h-3 rounded-full"></p>
+            <span className=" text-xs">Others</span>
+          </div>
+        </div>
       </div>
     </div>
   );
