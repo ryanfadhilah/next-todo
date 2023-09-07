@@ -9,7 +9,7 @@ import TodoCategory from "@/components/TodoCategory";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Planner App by Goldie Tiara",
+  title: "Add New Todo | Planner App by Goldie Tiara",
 };
 
 export default async function Home() {
