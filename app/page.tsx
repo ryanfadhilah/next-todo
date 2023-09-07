@@ -5,12 +5,24 @@ import { revalidatePath } from "next/cache";
 import { PiSmileyLight } from "react-icons/pi";
 import { Todo } from "@prisma/client";
 import Dashboard from "@/components/Dashboard";
+import Image from "next/image";
 
 export default async function Home() {
   const session = await getCurrentUser();
   console.log(session);
-  if (!session) return <p> please sign in first!</p>;
-
+  if (!session) {
+    return (
+      <span className="flex flex-col gap-3 justify-center mt-24 items-center m-auto text-3xl">
+        <Image
+          src="/chiyo-chichi-fliped.PNG"
+          width={200}
+          height={200}
+          alt="logo"
+        />
+        <p>Hi, Please signIn first</p>
+      </span>
+    );
+  }
   // get user todo
   const result: Todo[] = await prisma.todo.findMany({
     where: { userId: session?.user?.id },
@@ -68,7 +80,7 @@ export default async function Home() {
         <div className="fixed bottom-0 right-7 h-[80.5%] border-r-1 border-black"></div>
       </div>
 
-      <section className="w-full h-[525px] uppercase grid lg:grid-cols-2 lg:gap-0 gap-10 ">
+      <section className="w-full h-[525px] uppercase grid lg:grid-cols-2 lg:gap-0 gap-10">
         <div className="md:px-10">
           <h1 className=" mb-8 md:text-3xl text-xl text-center">dashboard</h1>
           <div className=" border border-black w-full h-[450px]">
@@ -80,7 +92,7 @@ export default async function Home() {
             />
           </div>
         </div>
-        <div className="md:px-10 lg:border-l-1 lg:border-black">
+        <div className="md:px-10 lg:border-l-1 lg:border-black pb-5">
           <h1 className=" mb-8 md:text-3xl text-center text-xl">
             Remaining Todos: {result.length - todoComplete.length}
           </h1>

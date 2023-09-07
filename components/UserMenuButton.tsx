@@ -15,7 +15,10 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
   return (
     <>
       {!user ? (
-        <button className="hover:underline" onClick={() => signIn()}>
+        <button
+          className="hover:underline md:text-base text-xs"
+          onClick={() => signIn()}
+        >
           SIGN IN
         </button>
       ) : (

@@ -35,7 +35,7 @@ const AuthProviders = () => {
             <button
               key={i}
               onClick={() => signIn(v?.id)}
-              className="hover:underline"
+              className="hover:underline md:text-base text-xs"
             >
               SIGN IN
             </button>
