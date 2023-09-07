@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { PieChart, Pie, Cell, Legend } from "recharts";
+import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from "recharts";
 
 type DashboardProps = {
   todoUrgent: number;
@@ -67,47 +67,50 @@ export default function Dashboard({
   return (
     <div>
       <div className=" grid place-content-center place-items-center m-5 ">
-        <PieChart width={280} height={300}>
-          <Pie
-            data={PieData}
-            dataKey="value"
-            outerRadius={70}
-            label={PieLabel}
-            labelLine={false}
-            stroke="black"
-            className=" focus:outline-none"
-            // cx={120}
-            // cy={100}
-            // fill="#8884d8"
-          >
-            {PieData.map((v, i) => (
-              <Cell
-                key={`cell-${i}`}
-                fill={PieDataTheme[i % PieDataTheme.length]}
-              />
-            ))}
-          </Pie>
-          <Pie
-            data={PieData2}
-            dataKey="value"
-            outerRadius={120}
-            innerRadius={70}
-            stroke="black"
-            className=" focus:outline-none"
-            // label={PieLabel}
-            // labelLine={false}
-            // cx={120}
-            // cy={100}
-            // fill="#8884d8"
-          >
-            {PieData2.map((v, i) => (
-              <Cell
-                key={`cell-${i}`}
-                fill={PieDataTheme2[i % PieDataTheme2.length]}
-              />
-            ))}
-          </Pie>
-        </PieChart>
+        <ResponsiveContainer width={280} height={300}>
+          <PieChart width={280} height={300}>
+            <Pie
+              data={PieData}
+              dataKey="value"
+              outerRadius={70}
+              label={PieLabel}
+              labelLine={false}
+              stroke="black"
+              className=" focus:outline-none"
+              // cx={120}
+              // cy={100}
+              // fill="#8884d8"
+            >
+              {PieData.map((v, i) => (
+                <Cell
+                  key={`cell-${i}`}
+                  fill={PieDataTheme[i % PieDataTheme.length]}
+                />
+              ))}
+            </Pie>
+            <Pie
+              data={PieData2}
+              dataKey="value"
+              outerRadius={120}
+              innerRadius={70}
+              stroke="black"
+              className=" focus:outline-none"
+              // label={PieLabel}
+              // labelLine={false}
+              // cx={120}
+              // cy={100}
+              // fill="#8884d8"
+            >
+              {PieData2.map((v, i) => (
+                <Cell
+                  key={`cell-${i}`}
+                  fill={PieDataTheme2[i % PieDataTheme2.length]}
+                />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+
         <div
           className=" grid 
         md:grid-cols-2 md:mt-12 
@@ -117,11 +120,11 @@ export default function Dashboard({
           <div className=" flex gap-5 ">
             <div className=" flex md:flex-col justify-center items-center gap-2">
               <p className="bg-red-500 w-3 h-3 rounded-full"></p>
-              <span className=" text-xs">Remainings</span>
+              <p className=" text-xs">Remainings</p>
             </div>
             <div className=" flex md:flex-col justify-center items-center gap-2">
               <p className="bg-teal-500 w-3 h-3 rounded-full"></p>
-              <span className=" text-xs">Completed</span>
+              <p className=" text-xs">Completed</p>
             </div>
           </div>
 
@@ -129,15 +132,15 @@ export default function Dashboard({
           <div className=" flex gap-5 ">
             <div className=" flex md:flex-col justify-center items-center gap-2">
               <p className="bg-rose-500 w-3 h-3 rounded-full"></p>
-              <span className=" text-xs">Urgent</span>
+              <p className=" text-xs">Urgent</p>
             </div>
             <div className=" flex md:flex-col justify-center items-center gap-2">
               <p className="bg-amber-500 w-3 h-3 rounded-full"></p>
-              <span className=" text-xs">Important</span>
+              <p className=" text-xs">Important</p>
             </div>
             <div className=" flex md:flex-col justify-center items-center gap-2">
               <p className="bg-sky-500 w-3 h-3 rounded-full"></p>
-              <span className=" text-xs">Others</span>
+              <p className=" text-xs">Others</p>
             </div>
           </div>
         </div>
