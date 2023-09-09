@@ -31,7 +31,11 @@ const NavBar = async () => {
             ? `Hi, ${session?.user?.name}!`
             : `Welcome to Planner by Goldie Tiara`}
         </p>
-        <div className=" w-full h-full flex justify-center items-center border-l-1 border-black p-2">
+        <div
+          className=" w-full h-full flex justify-center items-center border-l-1 border-black 
+        hover:bg-black hover:text-Ivory
+        focus:bg-black focus:text-Ivory"
+        >
           {/* <UserMenuButton session={session} /> */}
 
           {session?.user ? (

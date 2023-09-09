@@ -7,6 +7,7 @@ import { prisma } from "@/lib/db/prisma";
 import AddTodoButton from "@/components/AddTodoButton";
 import TodoCategory from "@/components/TodoCategory";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Add New Todo | Planner App by Goldie Tiara",
@@ -14,6 +15,20 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const session = await getCurrentUser();
+
+  if (!session) {
+    return (
+      <span className="flex flex-col gap-3 justify-center mt-24 items-center m-auto text-3xl">
+        <Image
+          src="/chiyo-chichi-fliped.PNG"
+          width={200}
+          height={200}
+          alt="logo"
+        />
+        <p>Hi, Please signIn first</p>
+      </span>
+    );
+  }
 
   const addNewTodo = async (formData: FormData) => {
     "use server";

@@ -29,19 +29,19 @@ const AuthProviders = () => {
 
   if (providers) {
     return (
-      <div>
+      <>
         {Object.values(providers).map((v: typeProvider, i, a) => {
           return (
             <button
               key={i}
               onClick={() => signIn(v?.id)}
-              className="hover:underline md:text-base text-xs"
+              className=" md:text-base text-xs w-full h-full"
             >
               SIGN IN
             </button>
           );
         })}
-      </div>
+      </>
     );
   }
 };

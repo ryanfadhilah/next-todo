@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Planner App by Goldie Tiara",
-  description: "Help to organize your daily tasks",
+  description: "Gives you focus, From work to play.",
 };
 
 export default function RootLayout({

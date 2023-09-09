@@ -83,7 +83,7 @@ export default async function Home() {
       <section className="w-full h-[525px] uppercase grid lg:grid-cols-2 lg:gap-0 gap-10">
         <div className="md:px-10">
           <h1 className=" mb-8 md:text-3xl text-xl text-center">dashboard</h1>
-          <div className=" border border-black w-full h-[450px]">
+          <div className=" border border-black w-full h-[456px]">
             <Dashboard
               todoUrgent={todoUrget.length}
               todoImportant={todoImportant.length}
@@ -92,7 +92,7 @@ export default async function Home() {
             />
           </div>
         </div>
-        <div className="md:px-10 lg:border-l-1 lg:border-black pb-5">
+        <div className="md:px-10  h-[100%] pb-5">
           <h1 className=" mb-8 md:text-3xl text-center text-xl">
             Remaining Todos: {result.length - todoComplete.length}
           </h1>
