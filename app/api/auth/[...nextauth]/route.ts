@@ -20,7 +20,7 @@ export const authOptions: NextAuthOptions = {
 
   theme: {
     colorScheme: "light",
-    logo: "/chiyo-chichi-fliped.PNG",
+    logo: "/bongo-cat.jpg",
   },
   callbacks: {
     async session({ session }) {

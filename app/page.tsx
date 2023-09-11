@@ -13,12 +13,7 @@ export default async function Home() {
   if (!session) {
     return (
       <span className="flex flex-col gap-3 justify-center mt-24 items-center m-auto text-3xl">
-        <Image
-          src="/chiyo-chichi-fliped.PNG"
-          width={200}
-          height={200}
-          alt="logo"
-        />
+        <Image src="/bongo-cat.jpg" width={200} height={200} alt="logo" />
         <p>Hi, Please signIn first</p>
       </span>
     );
@@ -75,15 +70,12 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="w-full h-full lg:px-7 px-5 relative hidden md:flex">
-        <div className="fixed bottom-0 left-7 h-[74.4%] border-l-1 border-black"></div>
-        <div className="fixed bottom-0 right-7 h-[80.5%] border-r-1 border-black"></div>
-      </div>
-
-      <section className="w-full h-[525px] uppercase grid lg:grid-cols-2 lg:gap-0 gap-10">
-        <div className="md:px-10">
-          <h1 className=" mb-8 md:text-3xl text-xl text-center">dashboard</h1>
-          <div className=" border border-black w-full h-[456px]">
+      <section className="w-full h-[525px] uppercase grid lg:grid-cols-2 lg:gap-5 gap-10 mb-5">
+        <div className=" border border-black h-fit p-1">
+          <h1 className=" mb-8 md:text-xl text-md text-white text-center bg-black py-4">
+            dashboard
+          </h1>
+          <div className=" w-full h-[456px]">
             <Dashboard
               todoUrgent={todoUrget.length}
               todoImportant={todoImportant.length}
@@ -92,52 +84,66 @@ export default async function Home() {
             />
           </div>
         </div>
-        <div className="md:px-10  h-[100%] pb-5">
-          <h1 className=" mb-8 md:text-3xl text-center text-xl">
+        <div className=" border border-black h-fit p-1  flex flex-col items-center">
+          <h1 className=" mb-8 md:text-xl text-md text-white text-center bg-black py-4 w-full">
             Remaining Todos: {result.length - todoComplete.length}
           </h1>
-          <div className=" border-t-1 border-black h-[456px] overflow-y-auto">
+          <div className="  h-[456px] overflow-y-auto">
             {result.map((v, i: number) => {
               return (
                 <div
-                  className={` flex border-x-1 border-b-1 border-black ${
-                    v.status ? ` bg-green-200/50` : ``
-                  }`}
+                  className=" p-2 relative mb-3 group
+                h-[80px] w-[333px]
+                sm:w-[533px] "
                 >
-                  <p
-                    className={`w-10 ${
-                      v.category === "Urgent"
-                        ? `bg-rose-500`
-                        : v.category === "Important"
-                        ? `bg-amber-500`
-                        : `bg-sky-500`
-                    }`}
-                  />
-                  <p
-                    key={i}
-                    className=" border-l-1 border-black px-3 py-5 justify-between w-full overflow-auto"
-                  >
-                    {v.title}
-                  </p>
-
-                  <Button
-                    className={`border-x-1 border-black hover:text-Ivory  ${
+                  <div
+                    className={` absolute z-30 top-1 right-[13.5px] flex border border-black group-hover:top-0 group-hover:right-3 transition-all ease-in-out duration-300
+                    w-[300px]
+                    sm:w-[500px]
+                    ${
                       v.status
-                        ? ` hover:bg-rose-700 focus:bg-rose-700 focus:text-Ivory`
-                        : ` hover:bg-black`
+                        ? ` bg-gray-100 text-black `
+                        : ` bg-white text-black`
                     }`}
-                    buttonType="update"
-                    buttonAction={updateTodo}
-                    status={v.status}
-                    todoId={v.id}
-                  />
-                  {/* )} */}
-                  <Button
-                    className="hover:bg-rose-700 hover:text-Ivory focus:bg-rose-700 focus:text-Ivory"
-                    buttonType="delete"
-                    buttonAction={deleteTodo}
-                    todoId={v.id}
-                  />
+                  >
+                    <p
+                      className={`w-10 ${
+                        v.category === "Urgent"
+                          ? `bg-red-500`
+                          : v.category === "Important"
+                          ? `bg-indigo-500`
+                          : `bg-sky-300`
+                      }`}
+                    />
+                    <p
+                      key={i}
+                      className="  px-3 py-5 justify-between w-full overflow-auto"
+                    >
+                      {v.title}
+                    </p>
+
+                    <Button
+                      className={`border-x-1 border-black hover:bg-yellow-300 focus:bg-yellow-300
+                      `}
+                      buttonType="update"
+                      buttonAction={updateTodo}
+                      status={v.status}
+                      todoId={v.id}
+                    />
+                    {/* )} */}
+                    <Button
+                      className="hover:bg-yellow-300 focus:bg-yellow-300"
+                      buttonType="delete"
+                      buttonAction={deleteTodo}
+                      todoId={v.id}
+                    />
+                  </div>
+
+                  <div
+                    className=" absolute bottom-1 left-3 flex border border-black bg-teal-black group-hover:bg-black ease-in-out transition-all duration-300
+                  h-[66px] w-[300px]
+                  sm:w-[500px]"
+                  ></div>
                 </div>
               );
             })}

@@ -29,7 +29,7 @@ export default function Button({
   return (
     <>
       <button
-        className={`px-5 hover:text-Ivory transition-all ease-in-out duration-300
+        className={`px-5 transition-all ease-in-out duration-300
     ${className} relative group`}
         disabled={isPending}
         onClick={() => {

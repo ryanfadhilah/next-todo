@@ -17,8 +17,8 @@ export default function Dashboard({
 }: DashboardProps) {
   const total = todoUrgent + todoImportant + todoOthers;
   const PieData = [
-    { name: "Important", value: todoComplete },
-    { name: "Others", value: total - todoComplete },
+    { name: "Completed", value: todoComplete },
+    { name: "Remainings", value: total - todoComplete },
   ];
   const PieData2 = [
     { name: "Urgent", value: todoUrgent },
@@ -27,13 +27,13 @@ export default function Dashboard({
   ];
 
   const PieDataTheme = [
-    "rgb(20 184 166 / var(--tw-bg-opacity))",
-    "rgb(239 68 68 / var(--tw-bg-opacity))",
+    "rgb(243 244 246 / var(--tw-bg-opacity))",
+    "rgb(255 255 255 / var(--tw-bg-opacity))",
   ];
   const PieDataTheme2 = [
-    "rgb(244 63 94 / var(--tw-bg-opacity))",
-    "rgb(245 158 11 / var(--tw-bg-opacity))",
-    "rgb(14 165 233 / var(--tw-bg-opacity))",
+    "rgb(239 68 68 / var(--tw-bg-opacity))",
+    "rgb(99 102 241 / var(--tw-bg-opacity))",
+    "rgb(125 211 252 / var(--tw-bg-opacity))",
   ];
 
   const RADIAN = Math.PI / 180;
@@ -119,11 +119,11 @@ export default function Dashboard({
           {/* legend */}
           <div className=" flex gap-5 ">
             <div className=" flex md:flex-col justify-center items-center gap-2">
-              <p className="bg-red-500 w-3 h-3 rounded-full"></p>
+              <p className="bg-gray-200 w-3 h-3 rounded-full"></p>
               <p className=" text-xs">Remainings</p>
             </div>
             <div className=" flex md:flex-col justify-center items-center gap-2">
-              <p className="bg-teal-500 w-3 h-3 rounded-full"></p>
+              <p className="bg-gray-500 w-3 h-3 rounded-full"></p>
               <p className=" text-xs">Completed</p>
             </div>
           </div>
@@ -135,11 +135,11 @@ export default function Dashboard({
               <p className=" text-xs">Urgent</p>
             </div>
             <div className=" flex md:flex-col justify-center items-center gap-2">
-              <p className="bg-amber-500 w-3 h-3 rounded-full"></p>
+              <p className="bg-indigo-500 w-3 h-3 rounded-full"></p>
               <p className=" text-xs">Important</p>
             </div>
             <div className=" flex md:flex-col justify-center items-center gap-2">
-              <p className="bg-sky-500 w-3 h-3 rounded-full"></p>
+              <p className="bg-sky-300 w-3 h-3 rounded-full"></p>
               <p className=" text-xs">Others</p>
             </div>
           </div>

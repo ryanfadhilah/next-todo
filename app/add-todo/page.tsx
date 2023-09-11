@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Add New Todo | Planner App by Goldie Tiara",
+  title: "Add New Todo | Planner App by Ryan Fadhilah",
 };
 
 export default async function Home() {
@@ -19,12 +19,7 @@ export default async function Home() {
   if (!session) {
     return (
       <span className="flex flex-col gap-3 justify-center mt-24 items-center m-auto text-3xl">
-        <Image
-          src="/chiyo-chichi-fliped.PNG"
-          width={200}
-          height={200}
-          alt="logo"
-        />
+        <Image src="/bongo-cat.jpg" width={200} height={200} alt="logo" />
         <p>Hi, Please signIn first</p>
       </span>
     );

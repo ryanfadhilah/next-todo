@@ -22,7 +22,7 @@ export default function TodoCategory({ className }: AddTodoButtonProps) {
             htmlFor="Urgent"
             className="inline-flex items-center justify-between w-full md:px-5 py-5 cursor-pointer
              border border-black
-            peer-checked:text-Ivory peer-checked:bg-red-500
+            peer-checked:text-white peer-checked:bg-red-500
             hover:text-red-950 hover:bg-red-200/20
             transition-all ease-in-out duration-300"
           >
@@ -41,8 +41,8 @@ export default function TodoCategory({ className }: AddTodoButtonProps) {
             htmlFor="Important"
             className="inline-flex items-center justify-between w-full md:px-5 py-5 cursor-pointer
              border-black border-y-1
-            peer-checked:text-Ivory peer-checked:bg-amber-500
-            hover:text-amber-950 hover:bg-amber-200/20
+            peer-checked:text-white peer-checked:bg-indigo-500
+            hover:text-indigo-950 hover:bg-indigo-200/20
             transition-all ease-in-out duration-300"
           >
             <div className="w-full">Important</div>
@@ -60,7 +60,7 @@ export default function TodoCategory({ className }: AddTodoButtonProps) {
             htmlFor="Others"
             className="inline-flex items-center justify-between w-full md:px-5 py-5 cursor-pointer
              border border-black
-            peer-checked:text-Ivory peer-checked:bg-sky-500
+            peer-checked:text-white peer-checked:bg-sky-300
             hover:text-sky-950 hover:bg-sky-200/20
             transition-all ease-in-out duration-300"
           >

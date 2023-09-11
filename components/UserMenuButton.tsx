@@ -27,7 +27,7 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
             <button className="uppercase inline-flex items-center">
               <VscMenu className=" shrink-0 text-xl" />
             </button>
-            <ul className=" dropdown-menu absolute hidden text-gray-700 bg-Ivory min-w-fit w-64 overflow-auto md:-right-[200%] right-0 z-50 text-center border-x-1 border-t-1 border-black">
+            <ul className=" dropdown-menu absolute hidden text-gray-700 bg-white min-w-fit w-64 overflow-auto md:-right-[200%] right-0 z-50 text-center border-x-1 border-t-1 border-black">
               <li className="py-3 px-5 pt-5 items-center w-full border-b-1 border-black flex-col flex">
                 <Image
                   src={`${user?.image}`}
@@ -40,14 +40,14 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
                 <p className=" text-sm">{user?.email}</p>
               </li>
               {/* <Link href={"/add-todo"}> */}
-              <li className=" cursor-pointer hover:bg-black hover:text-Ivory transition-all ease-in-out duration-300 py-3 px-2 border-b-1 border-black">
+              <li className=" cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out duration-300 py-3 px-2 border-b-1 border-black">
                 <a href="/add-todo" className="py-3 px-[50px] text-center">
                   Add Todo
                 </a>
               </li>
               {/* </Link> */}
               <li
-                className=" cursor-pointer hover:bg-black hover:text-Ivory transition-all ease-in-out duration-300 py-3 px-2 border-b-1 border-black"
+                className=" cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out duration-300 py-3 px-2 border-b-1 border-black"
                 onClick={() => signOut()}
               >
                 <a>Sign Out</a>

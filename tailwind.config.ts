@@ -17,7 +17,7 @@ module.exports = {
         8: "8px",
       },
       colors: {
-        Ivory: "#fffafa",
+        // white: "#fffafa",
         Grass: "#bcccb4",
       },
     },

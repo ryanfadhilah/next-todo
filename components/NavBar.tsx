@@ -17,7 +17,7 @@ const NavBar = async () => {
         <div className=" w-fit md:pr-10 pr-3 md:shrink-0">
           <Link href={"/"}>
             <Image
-              src="/chiyo-chichi-fliped.PNG"
+              src="/bongo-cat-flipped.jpg"
               width={100}
               height={100}
               alt="logo"
@@ -29,12 +29,12 @@ const NavBar = async () => {
         <p className=" col-span-4 md:pl-10 px-3 py-5 text-ellipsis overflow-hidden">
           {session?.user
             ? `Hi, ${session?.user?.name}!`
-            : `Welcome to Planner by Goldie Tiara`}
+            : `Welcome to Planner by Ryan Fadhilah`}
         </p>
         <div
           className=" w-full h-full flex justify-center items-center border-l-1 border-black 
-        hover:bg-black hover:text-Ivory
-        focus:bg-black focus:text-Ivory"
+        hover:bg-black hover:text-white
+        focus:bg-black focus:text-white"
         >
           {/* <UserMenuButton session={session} /> */}
 
