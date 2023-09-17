@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default async function Home() {
   const session = await getCurrentUser();
-  console.log(session);
+  // console.log(session);
   if (!session) {
     return (
       <span className="flex flex-col gap-3 justify-center mt-24 items-center m-auto text-3xl">
@@ -18,6 +18,7 @@ export default async function Home() {
       </span>
     );
   }
+
   // get user todo
   const result: Todo[] = await prisma.todo.findMany({
     where: { userId: session?.user?.id },
@@ -95,6 +96,7 @@ export default async function Home() {
                   className=" p-2 relative mb-3 group
                 h-[80px] w-[333px]
                 sm:w-[533px] "
+                  key={i}
                 >
                   <div
                     className={` absolute z-30 top-1 right-[13.5px] flex border border-black group-hover:top-0 group-hover:right-3 transition-all ease-in-out duration-300
@@ -112,13 +114,12 @@ export default async function Home() {
                           ? `bg-red-500`
                           : v.category === "Important"
                           ? `bg-indigo-500`
-                          : `bg-sky-300`
+                          : v.category === "Others"
+                          ? `bg-sky-300`
+                          : ""
                       }`}
                     />
-                    <p
-                      key={i}
-                      className="  px-3 py-5 justify-between w-full overflow-auto"
-                    >
+                    <p className="  px-3 py-5 justify-between w-full overflow-auto">
                       {v.title}
                     </p>
 

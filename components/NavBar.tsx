@@ -16,12 +16,7 @@ const NavBar = async () => {
       ) : (
         <div className=" w-fit md:pr-10 pr-3 md:shrink-0">
           <Link href={"/"}>
-            <Image
-              src="/bongo-cat-flipped.jpg"
-              width={100}
-              height={100}
-              alt="logo"
-            />
+            <Image src="/bogo.gif" width={100} height={100} alt="logo" />
           </Link>
         </div>
       )}
