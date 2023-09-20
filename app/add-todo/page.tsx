@@ -43,6 +43,7 @@ export default async function Home() {
 
     redirect("/");
   };
+
   console.log(addNewTodo);
   return (
     <main className="w-full h-full flex items-center justify-start flex-col lg:px-7 my-6 relative">
